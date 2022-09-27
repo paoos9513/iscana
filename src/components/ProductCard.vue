@@ -1,32 +1,62 @@
 <script>
-//import Product from '../views/product/Product.vue';
+import AddProductVue from "../views/product/AddProduct.vue";
+import { useProductStore } from "../stores/counter.js";
 
 export default {
-  components: {
-    
-  }
+  components: {},
+  setup() {
+    const store = useProductStore();
+
+    return {
+      store,
+    };
+  },
+  methods: {
+    deleteProduct: function (product) {
+      const index = this.store.products.indexOf(product);
+      if (index > -1) {
+        // only splice array when item is found
+        this.store.products.splice(index, 1); // 2nd parameter means remove one item only
+      }
+    },
+  },
+  props: ["product"],
 };
 </script>
     
 <template>
   <div class="card">
-    <img src="perfume1.jpg" class="img-card" alt="perfume" />
+    <img :src="product.imageURL" class="img-card" alt="perfume_image" />
     <div class="card-body">
-      <h3 class="card-title">Ariana Grande</h3>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+      <h3 class="card-title color-title">{{ product.name }}</h3>
+      <p class="card-text color-text-p">
+        Description: {{ product.description }}
       </p>
-      <a href="" class="btn btn-primary">Ver más</a>
-      <!-- <CategoryBox :category="categories[index-1]" /> -->
+      <p>Price: {{ product.price }}</p>
+      <p>Gender: {{ product.gender }}</p>
+      <button type="button" class="btn btn-light btn-color">Ver más</button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        @click="deleteProduct(product)"
+      >
+        Eliminar
+      </button>
     </div>
-    <!-- <div class="embed-responsive embed-responsive-16by9">
-      <img class="card-img-top embed-responsive-item" :src="product.imageURL" alt="Card image cap" />
-    </div> -->
   </div>
-
 </template>
       
 <style lang="scss">
+.btn-color {
+  background-color: rgb(27, 147, 139);
+  color: white;
+}
 
+.color-title {
+  color: rgb(27, 147, 139);
+}
+
+.color-text-p {
+  color: gray;
+}
 </style>

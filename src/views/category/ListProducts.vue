@@ -1,17 +1,14 @@
 <script>
-
     export default {
-    
-    };
-    </script>
-    
-    
-    <template>
         
-    </template>
+    };
+</script>
     
+<template>
+        
+</template>
     
-    <style lang="scss">
+<style lang="scss">
     
-    </style>>
+</style>>
     

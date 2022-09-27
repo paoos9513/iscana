@@ -1,41 +1,31 @@
 <script>
+import CategoryCard from '../components/CategoryCard.vue';
+import FooterHome from '../components/FooterHome.vue';
+
 
 export default {
-
+  components: {
+    CategoryCard,
+    FooterHome,
+  },
 };
 </script>
 <!--Pantalla de un navegador-->
 <template>
+
   <div class="Container">
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2 class="pt-3">Perfumes Iscana</h2>
+          <h3 class="pt-3 color-tittle">En Iscana encuentra todo lo que deseas</h3>
+          <hr class="hr-tittle" />
         </div>
       </div>
-      <div class="row">
-        <div v-for="index in this.categorySize" :key="index"
-          class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
-          <!-- <CategoryBox :category="categories[index-1]" /> -->
-        </div>
-      </div>
+      <CategoryCard />
+      
     </div>
+    <FooterHome/>
   </div>
-
-  <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="logo.png" class="d-block w-100" alt="..." />
-          </div>
-        </div>
-      </div> -->
-
-  <!-- <div class="row">
-        <div v-for="index in this.categorySize" :key="index"
-             class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
-             <img src="logo.png" class="d-block w-100" alt="..." />
-        </div>
-      </div> -->
 </template>
 
 <style lang="scss">
@@ -46,4 +36,14 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+
+.color-tittle {
+  color: rgb(27, 147, 139);
+}
+
+.hr-tittle {
+  height: 2px;
+  background-color: rgb(27, 147, 139);
+}
+
 </style>

@@ -1,17 +1,22 @@
 <script>
-
-    export default {
-    
+export default {
+  data() {
+    return {
+      product: {},
     };
-    </script>
+  },
+  props: ["products"],
+  mounted() {
+    this.id = this.$route.params.id;
+    this.product = this.products.find((product) => this.product.id == this.id);
+  },
+};
+</script>
     
     
-    <template>
-        
-    </template>
+<template></template>
     
     
-    <style lang="scss">
-    
-    </style>>
+<style lang="scss">
+</style>>
     
