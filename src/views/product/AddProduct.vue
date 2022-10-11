@@ -14,7 +14,6 @@ export default {
   },
   setup() {
     const store = useProductStore();
-
     return {
       store,
     };
@@ -39,16 +38,20 @@ export default {
       this.gender = "";
       this.imageURL = "";
     },
+    saveData(products){
+      const dataString=JSON.stringify(obj)
+      localStorage.setItem("data",dataString)
+    },
   },
 };
 </script>
-    
     
 <template>
   <div class="container">
     <div class="row">
       <div class="col-3"></div>
       <div class="col-6">
+        <br/>
         <form>
           <div class="form-group">
             <label>Category</label>
@@ -62,10 +65,12 @@ export default {
               </option>
             </select>
           </div>
+          <br/>
           <div class="form-group">
             <label>Name</label>
             <input type="text" v-model="name" required class="form-control" />
           </div>
+          <br/>
           <div class="form-group">
             <label>Description</label>
             <input
@@ -75,6 +80,7 @@ export default {
               class="form-control"
             />
           </div>
+          <br/>
           <div class="form-group">
             <label>Price</label>
             <input
@@ -84,6 +90,7 @@ export default {
               class="form-control"
             />
           </div>
+          <br/>
           <div class="form-group">
             <label>Gender</label>
             <br/>
@@ -111,9 +118,16 @@ export default {
                 Hombre
               </label>
           </div>
+          <br/>
           <div class="form-group">
             <label>Image Url</label>
             <input type="text" v-model="imageURL" class="form-control" />
+          </div>
+
+          <div class="input-group mb-3">
+            <!-- <label class="input-group-text" for="inputGroupFile01">Agregar fotos</label> -->
+            
+            <!-- <input type="file" class="form-control" id="inputGroupFile01"> -->
           </div>
           <button type="button" class="btn btn-primary" v-on:click="addProduct">
             Agregar product
@@ -125,6 +139,6 @@ export default {
     </div>
   </div>
 </template>
-    <style lang="scss">
+<style lang="scss">
 </style>>
     

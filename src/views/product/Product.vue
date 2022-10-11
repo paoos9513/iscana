@@ -23,7 +23,7 @@ export default {
     <!-- <p>{{ store.products.length }}</p> -->
     <ul class="row card-products">
       <li
-        class="col-xs-12 col-sm-6 col-md-4 col-lg-2 card-product"
+        class="col-xs-12 col-sm-6 col-md-4 col-lg-4 card-product"
         v-for="product in store.products"
         :key="product.name"
       >
