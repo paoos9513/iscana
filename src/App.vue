@@ -39,6 +39,9 @@ export default {
         <a class="navbar-brand" href="#">
           <RouterLink to="/AddProduct" class="color-font">Add</RouterLink>
         </a>
+        <a class="navbar-brand" href="#">
+          <RouterLink to="/Authentication" class="color-font">Iniciar sesion</RouterLink>
+        </a>
       </div>
     </nav>
   </header>

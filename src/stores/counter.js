@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { auth } from '../firebase/config'
 
 export const useProductStore = defineStore({
   id: 'counter',
@@ -184,6 +185,10 @@ export const useProductStore = defineStore({
   actions: {
     increment() {
       this.counter++
-    }
+    },
+    signIn(email, password){
+      signInWithEmailAndPassword(auth, email, password)
+      .then()
+    },
   }
 })
